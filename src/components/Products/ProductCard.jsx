@@ -34,7 +34,7 @@ const ProductCard = (props) => {
                     </span>
                   </div>
                   <Link to={"/details/" + item["_id"]}>
-                    <img src={PImage} className="card-img-top" alt="..." />
+                    <img src={item['image']} className="card-img-top" height={250} alt="..." />
                   </Link>
                   <div className="card-body px-2 pb-2">
                     <div>

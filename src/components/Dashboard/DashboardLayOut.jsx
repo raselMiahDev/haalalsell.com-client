@@ -72,7 +72,7 @@ const DashboardLayOut = (props) => {
           icon: (
               <BsCircle size={16} className="side-bar-subitem-icon" />
           ),
-          url: '/CustomerListPage',
+          url: '/dashboard/productList',
         },
       ],
     },

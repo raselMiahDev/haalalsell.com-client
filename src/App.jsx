@@ -14,6 +14,7 @@ import AddCategoryPage from './pages/Dashboard/AddCategoryPage';
 import AddBrandPage from './pages/Dashboard/AddBrandPage';
 import { getUserDetails } from './helper/SessionHelper';
 import BrandListPage from './pages/Dashboard/BrandListPage';
+import ProductListPage from './pages/Dashboard/ProductListPage';
 
 const App = () => {
   const userInfo = getUserDetails()
@@ -24,6 +25,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<DashboardPage/>}/>
             <Route path='/dashboard/productCreateUpdate' element={<ProductCreateUpdatePage/>}/>
+            <Route path='/dashboard/productList' element={<ProductListPage/>}/>
             <Route path='/dashboard/AddProductDetails' element={<AddProductDetailsPage/>}/>
             <Route path='/dashboard/AddCategory' element={<AddCategoryPage/>}/>
             <Route path='/dashboard/AddBrand' element={<AddBrandPage/>}/>
