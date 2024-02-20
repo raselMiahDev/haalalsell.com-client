@@ -85,14 +85,7 @@ const DashboardLayOut = (props) => {
           title: 'Add Category',
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
           url: '/dashboard/AddCategory',
-        },
-        {
-          title: 'Category List',
-          icon: (
-              <BsCircle size={16} className="side-bar-subitem-icon" />
-          ),
-          url: '/Category',
-        },
+        }
       ],
     },
     {
@@ -112,6 +105,18 @@ const DashboardLayOut = (props) => {
           ),
           url: '/dashboard/BrandList',
         },
+      ],
+    },
+    {
+      title: 'Product Slide',
+      icon: <AiOutlineBank  className="side-bar-item-icon" />,
+      url: '/',
+      subMenu: [
+        {
+          title: 'Create Slide',
+          icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
+          url: '/CreateProductSlide',
+        }
       ],
     },
   ];

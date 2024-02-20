@@ -2,8 +2,8 @@ import axios from "axios";
 import unauthorized from "../utility/unauthorized";
 import { setToken, getToken, setUserDetails } from "../helper/SessionHelper";
 // const BASEURL = "https://e-shop-server-seven.vercel.app";
-// const BASEURL = "http://localhost:5000/api/v1";
-const BASEURL = "https://haalalsell.onrender.com/api/v1";
+const BASEURL = "http://localhost:5000/api/v1";
+// const BASEURL = "https://haalalsell.onrender.com/api/v1";
 const Headers = { headers: { token: getToken() } };
 
 export const CreateCategoryRequiest = async (categoryName, categoryImg) => {
@@ -71,5 +71,63 @@ export const DeleteProductRequiest = async (id) => {
   } catch (error) {
     console.error("Error delete product", error);
     throw error; // Rethrow the error to be caught by the caller
+  }
+};
+export const CreateProductSliderRequiest = async (
+  title,
+  short_des,
+  price,
+  productID,
+  base64
+) => {
+  try {
+    const URL = BASEURL + "/CreateSlider/";
+    const postBody = {
+      title: title,
+      short_des: short_des,
+      price: price,
+      productID: productID,
+      img: base64,
+    };
+    const { data } = await axios.post(URL, postBody, Headers);
+    return data;
+  } catch (error) {
+    return false;
+  }
+};
+export const CreateProductDetailsRequiest = async (
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  des,
+  color,
+  size,
+  productID
+) => {
+  try {
+    const URL = BASEURL + "/CreateProductDetails";
+    const postBody = {
+      img1,
+      img2,
+      img3,
+      img4,
+      img5,
+      img6,
+      img7,
+      img8,
+      des,
+      color,
+      size,
+      productID,
+    };
+    const { data } = await axios.post(URL, postBody, Headers);
+    return data;
+  } catch (error) {
+    return false;
   }
 };

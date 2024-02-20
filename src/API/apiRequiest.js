@@ -2,8 +2,8 @@ import axios from "axios";
 import unauthorized from "../utility/unauthorized";
 import { setToken, getToken, setUserDetails } from "../helper/SessionHelper";
 // const BASEURL = "https://e-shop-server-seven.vercel.app";
-// const BASEURL = "http://localhost:5000";
-const BASEURL = "https://haalalsell.onrender.com";
+const BASEURL = "http://localhost:5000";
+// const BASEURL = "https://haalalsell.onrender.com";
 const Headers = { headers: { token: getToken() } };
 
 export const SliderListRequest = async () => {

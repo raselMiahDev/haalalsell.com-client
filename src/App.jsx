@@ -15,6 +15,7 @@ import AddBrandPage from './pages/Dashboard/AddBrandPage';
 import { getUserDetails } from './helper/SessionHelper';
 import BrandListPage from './pages/Dashboard/BrandListPage';
 import ProductListPage from './pages/Dashboard/ProductListPage';
+import ProductSlidePage from './pages/Dashboard/ProductSlidePage';
 
 const App = () => {
   const userInfo = getUserDetails()
@@ -30,6 +31,7 @@ const App = () => {
             <Route path='/dashboard/AddCategory' element={<AddCategoryPage/>}/>
             <Route path='/dashboard/AddBrand' element={<AddBrandPage/>}/>
             <Route path='/dashboard/BrandList' element={<BrandListPage/>}/>
+            <Route path='/CreateProductSlide' element={<ProductSlidePage/>}/>
           </Routes>
         </BrowserRouter>
       </>
