@@ -85,6 +85,11 @@ const DashboardLayOut = (props) => {
           title: 'Add Category',
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
           url: '/dashboard/AddCategory',
+        },
+        {
+          title: 'Category List',
+          icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
+          url: '/CategoryList',
         }
       ],
     },
@@ -116,6 +121,11 @@ const DashboardLayOut = (props) => {
           title: 'Create Slide',
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
           url: '/CreateProductSlide',
+        },
+        {
+          title: 'Slide List',
+          icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
+          url: '/DeleteProductSlide',
         }
       ],
     },

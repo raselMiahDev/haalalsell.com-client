@@ -29,7 +29,7 @@ const Services = () => {
                 data.map((item)=>{
                     return(
                         <div key={item.id} className="col-12 col-md-4 col-lg-4 text-center">
-                        <span className="bg-light p-4 rounded">
+                        <span className="bg-light p-4 rounded ">
                           <span className="p-3 bg-dark rounded">
                             {item.icon}
                           </span>

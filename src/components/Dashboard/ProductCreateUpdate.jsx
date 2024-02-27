@@ -2,8 +2,10 @@ import React, { useState,useRef, useEffect } from 'react';
 import { ErrorToast, IsEmpty, SuccessToast, getBase64 } from '../../helper/FormHelper';
 import { CreateProductRequiest } from '../../API/AdminApiRequiest';
 import { BrandListRequest, CategoryListRequest } from '../../API/apiRequiest';
+import SubmitButton from './../common/SubmitButton';
 
 const ProductCreateUpdate = () => {
+    const [BtnLoader, SetBtnLoader] = useState(false);
     const [category,setCategory] = useState([]);
     const [brand,setBrand] = useState([]);
     useEffect(()=>{
@@ -64,11 +66,13 @@ const ProductCreateUpdate = () => {
             ErrorToast("image is reqired");
             return false;
         }else{
+            SetBtnLoader(true);
             await CreateProductRequiest(title,des,price,discount,stock,star,remark,categoryID,brandID,base64).then((res)=>{
                 if(res.status==true){
                     SuccessToast(res.message);
                 }
             })
+            SetBtnLoader(false);
         }
 
 
@@ -136,7 +140,7 @@ const ProductCreateUpdate = () => {
                     <input type="file" ref={(input) => (imageRef = input)} className='form-control-sm form-control' />
                 </div>
                 <div className='pt-4 col-md-6'>
-                    <button onClick={onSubmit} className='btn btn-success'>Create</button>
+                    <SubmitButton submit={BtnLoader} onClick={onSubmit} className='btn btn-success' text="Add Product"/>
                 </div>
             </div>
         </div>

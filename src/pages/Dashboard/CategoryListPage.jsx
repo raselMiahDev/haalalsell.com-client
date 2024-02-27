@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import DashboardLayOut from '../../components/Dashboard/DashboardLayOut';
-import { BrandListRequest } from '../../API/apiRequiest';
+import { CategoryListRequest } from '../../API/apiRequiest';
 import ProductsSkeleton from "../../Skeleton/BrandsSkeleton";
-import BrandList from './../../components/Dashboard/BrandList';
-const BrandListPage = () => {
+import CategoryList from './../../components/Dashboard/CategoryList';
+const CategoryListPage = () => {
     const [data,setData] = useState([]);
     const [id,setID] = useState(null)
     useEffect(()=>{
         (async()=>{
-            const result =await BrandListRequest()
+            const result =await CategoryListRequest()
             setData(result)
             setID(result.data)
         })();
@@ -24,12 +24,12 @@ const BrandListPage = () => {
         return (
           <DashboardLayOut>
             <div className='container'>
-                <h2>Brand List</h2>
-            <BrandList data={data} />
+                <h2>Category List</h2>
+            <CategoryList data={data} />
             </div>
           </DashboardLayOut>
         );
       }
 };
 
-export default BrandListPage;
+export default CategoryListPage;

@@ -1,12 +1,19 @@
-import React from "react";
-
-const BrandAndCategoryList = (props) => {
+import { DeleteCategoryRequiest } from "../../API/AdminApiRequiest";
+import toast, { Toaster } from "react-hot-toast";
+const CategoryList = (props) => {
+  const handleSubmit =async (id)=>{
+    await DeleteCategoryRequiest(id).then((res)=>{
+      if(res.status==true){
+        toast.success(res.message)
+      }
+    })
+  }
   return (
     <div>
       <table className="table">
         <thead className="thead-dark">
           <tr>
-            <th scope="col">Number</th>
+            <th scope="col">Id</th>
             <th scope="col">Image</th>
             <th scope="col">Name</th>
             <th scope="col">Products</th>
@@ -18,17 +25,17 @@ const BrandAndCategoryList = (props) => {
             {
                 props.data.map((item,i)=>{
                     return(
-                        <tr>
-                            <th scope="row">{i++}</th>
+                        <tr key={i}>
+                            <th scope="row">{i+1}</th>
                             <td>
-                                <img src={item['brandImg']} width={50} alt="" />
+                                <img src={item['categoryImg']} width={50} alt="" />
                             </td>
-                            <td>{item['brandName']}</td>
-                            <td>{item['brandName']}</td>
+                            <td>{item['categoryName']}</td>
+                            <td>{item['categoryName']}</td>
                             <td>
                                 <div className="btn-group">
                                     <button className="btn btn-success btn-sm">Edit</button>
-                                    <button className="btn btn-danger btn-sm">Delete</button>
+                                    <button onClick={()=>handleSubmit(item['_id'])} className="btn btn-danger btn-sm">Delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -42,4 +49,4 @@ const BrandAndCategoryList = (props) => {
   );
 };
 
-export default BrandAndCategoryList;
+export default CategoryList;

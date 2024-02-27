@@ -2,9 +2,11 @@ import React, { useState,useRef, useEffect } from 'react';
 import { ErrorToast, IsEmpty, SuccessToast, getBase64 } from '../../helper/FormHelper';
 import { CreateProductSliderRequiest} from '../../API/AdminApiRequiest';
 import { AllProductsRequest } from '../../API/apiRequiest';
+import SubmitButton from './../common/SubmitButton';
 
 const CreateProductSlide = () => {
     const [product,setProduct] = useState([]);
+    const [BtnLoader, SetBtnLoader] = useState(false);
     let imageRef= useRef();
 
     useEffect(()=>{
@@ -41,11 +43,13 @@ const CreateProductSlide = () => {
             return false;
 
         }else{
+            SetBtnLoader(true);
             await CreateProductSliderRequiest(title, short_des, price, productID,base64).then((res)=>{
                 if(res.status==true){
                     SuccessToast("Slider Create success");
                 }
             })
+            SetBtnLoader(false);
         }
     }
     const handleChange = (property,value)=>{
@@ -83,7 +87,7 @@ const CreateProductSlide = () => {
                     <input type="file" ref={(input) => (imageRef = input)} className='form-control-sm form-control' />
                 </div>
                 <div className='pt-4 col-md-6'>
-                    <button onClick={onSubmit} className='btn btn-success'>Create</button>
+                    <SubmitButton submit={BtnLoader} onClick={onSubmit} className='btn btn-success' text="Create"/>
                 </div>
             </div>
         </div>

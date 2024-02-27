@@ -42,7 +42,7 @@ const ProductCard = (props) => {
                         to={"/details/" + item["_id"]}
                         style={{ textDecoration: "none" }}
                       >
-                        <span className="card-title">{item["title"]}</span>
+                        <h6 className="card-title py-2">{item["title"]}</h6>
                       </Link>
 
                       <p>

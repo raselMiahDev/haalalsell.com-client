@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { FaEye, FaFacebookF } from "react-icons/fa";
 import { ProductListByRemarkRequest } from "../../API/apiRequiest.js";
 import "../../assets/css/productCard.css";
 import ProductCard from "../Products/ProductCard.jsx";
-import { Link } from "react-router-dom";
-
 const Products = () => {
   const [data_new, setData_new] = useState([]);
   const [data_trending, setData_trending] = useState([]);
@@ -84,34 +81,6 @@ const Products = () => {
                           aria-selected="false"
                         >
                           Popular
-                        </button>
-                      </li>
-                      <li className="nav-item" role="presentation">
-                        <button
-                          className="nav-link"
-                          id="pills-disabled-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#pills-top"
-                          type="button"
-                          role="tab"
-                          aria-controls="pills-disabled"
-                          aria-selected="false"
-                        >
-                          Top
-                        </button>
-                      </li>
-                      <li className="nav-item" role="presentation">
-                        <button
-                          className="nav-link"
-                          id="pills-disabled-tab"
-                          data-bs-toggle="pill"
-                          data-bs-target="#pills-special"
-                          type="button"
-                          role="tab"
-                          aria-controls="pills-disabled"
-                          aria-selected="false"
-                        >
-                          Special
                         </button>
                       </li>
                   </ul>

@@ -1,9 +1,8 @@
-import { DeleteProductRequiest } from "../../API/AdminApiRequiest";
+import { DeleteBrandRequiest } from "../../API/AdminApiRequiest";
 import toast, { Toaster } from "react-hot-toast";
-const BrandAndCategoryList = (props) => {
-  
+const BrandList = (props) => {
   const handleSubmit =async (id)=>{
-    await DeleteProductRequiest(id).then((res)=>{
+    await DeleteBrandRequiest(id).then((res)=>{
       if(res.status==true){
         toast.success(res.message)
       }
@@ -16,10 +15,8 @@ const BrandAndCategoryList = (props) => {
           <tr>
             <th scope="col">Number</th>
             <th scope="col">Image</th>
-            <th scope="col">Title</th>
-            <th scope="col">Star</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Price</th>
+            <th scope="col">Name</th>
+            <th scope="col">Products</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -28,19 +25,17 @@ const BrandAndCategoryList = (props) => {
             {
                 props.data.map((item,i)=>{
                     return(
-                        <tr>
+                        <tr key={i}>
                             <th scope="row">{i+1}</th>
                             <td>
-                                <img src={item['image']} width={50} alt="" />
+                                <img src={item['brandImg']} width={50} alt="" />
                             </td>
-                            <td>{item['title']}</td>
-                            <td>{item['star']}</td>
-                            <td>{item['stock']}</td>
-                            <td>{item['price']}</td>
+                            <td>{item['brandName']}</td>
+                            <td>{item['brandName']}</td>
                             <td>
                                 <div className="btn-group">
                                     <button className="btn btn-success btn-sm">Edit</button>
-                                    <button className="btn btn-danger btn-sm" onClick={()=>handleSubmit(item['_id'])}>Delete</button>
+                                    <button onClick={()=>handleSubmit(item['_id'])} className="btn btn-danger btn-sm">Delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -54,4 +49,4 @@ const BrandAndCategoryList = (props) => {
   );
 };
 
-export default BrandAndCategoryList;
+export default BrandList;

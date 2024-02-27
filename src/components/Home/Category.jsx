@@ -14,10 +14,10 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="section p-3">
+    <div className="section">
       <div className="container">
         <div className="row">
-          <h4 className="my-3 p-0">Browse By Category</h4>
+          <h4 className="my-3 p-0">Browse by category</h4>
           {data.length > 0 ? (
             data.map((item, i) => {
               return (
@@ -28,7 +28,7 @@ const Categories = () => {
                   <Link
                     to={"/product-by-category/" + item["_id"]}
                     style={{ textDecoration: "none" }}
-                    className="card h-100 rounded-3 category-hover"
+                    className="card h-100 category-hover"
                   >
                     <div className="card-body">
                       <img className="w-50 h-50" src={item["categoryImg"]} />

@@ -5,7 +5,6 @@ import { setToken, getToken, setUserDetails } from "../helper/SessionHelper";
 const BASEURL = "http://localhost:5000";
 // const BASEURL = "https://haalalsell.onrender.com";
 const Headers = { headers: { token: getToken() } };
-
 export const SliderListRequest = async () => {
   try {
     let result = await axios.get(BASEURL + "/api/v1/SliderList");
@@ -15,7 +14,6 @@ export const SliderListRequest = async () => {
     return [];
   }
 };
-
 export const BrandListRequest = async () => {
   try {
     let result = await axios.get(BASEURL + "/api/v1/BrandList");
@@ -43,7 +41,6 @@ export const ProductListByRemarkRequest = async (Remark) => {
     return [];
   }
 };
-
 export async function DetailsListRequest(id) {
   try {
     let result = await axios.get(BASEURL + "/api/v1/ProductDetails/" + id);
@@ -54,7 +51,6 @@ export async function DetailsListRequest(id) {
     return [];
   }
 }
-
 export async function ListBySmilierRequest(categoryID) {
   try {
     let result = await axios.get(
@@ -78,7 +74,6 @@ export async function CreateWishListRequest(id) {
     return [];
   }
 }
-
 export async function CreateCartListRequest(reqBody) {
   try {
     let URL = BASEURL + "/api/v1/CreateCartList/";
@@ -106,7 +101,6 @@ export async function UserLoginRequest(phoneNumber, password) {
     return false;
   }
 }
-
 export async function UserSignUpRequest(fullName, phoneNumber, password) {
   try {
     let URL = BASEURL + "/api/v1/signUp";
@@ -197,7 +191,6 @@ export async function ListByCategoryRequest(CategoryID) {
     return [];
   }
 }
-
 export async function ListByKeywordRequest(Keyword) {
   try {
     let URL = BASEURL + "/api/v1/ListByKeyword/" + Keyword;

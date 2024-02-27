@@ -16,6 +16,8 @@ import { getUserDetails } from './helper/SessionHelper';
 import BrandListPage from './pages/Dashboard/BrandListPage';
 import ProductListPage from './pages/Dashboard/ProductListPage';
 import ProductSlidePage from './pages/Dashboard/ProductSlidePage';
+import CategoryListPage from './pages/Dashboard/CategoryListPage';
+import ProductSliderListPage from './pages/Dashboard/ProductSliderListPage';
 
 const App = () => {
   const userInfo = getUserDetails()
@@ -31,7 +33,9 @@ const App = () => {
             <Route path='/dashboard/AddCategory' element={<AddCategoryPage/>}/>
             <Route path='/dashboard/AddBrand' element={<AddBrandPage/>}/>
             <Route path='/dashboard/BrandList' element={<BrandListPage/>}/>
+            <Route path='/CategoryList' element={<CategoryListPage/>}/>
             <Route path='/CreateProductSlide' element={<ProductSlidePage/>}/>
+            <Route path='/DeleteProductSlide' element={<ProductSliderListPage/>}/>
           </Routes>
         </BrowserRouter>
       </>

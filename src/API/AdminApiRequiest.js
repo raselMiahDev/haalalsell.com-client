@@ -17,7 +17,6 @@ export const CreateCategoryRequiest = async (categoryName, categoryImg) => {
     throw error; // Rethrow the error to be caught by the caller
   }
 };
-
 export const CreateBrandRequiest = async (brandName, brandImg) => {
   try {
     const reqData = { brandName: brandName, brandImg: brandImg };
@@ -62,7 +61,6 @@ export const CreateProductRequiest = async (
     throw error; // Rethrow the error to be caught by the caller
   }
 };
-
 export const DeleteProductRequiest = async (id) => {
   try {
     const URL = BASEURL + "/DeleteProduct/" + id;
@@ -129,5 +127,35 @@ export const CreateProductDetailsRequiest = async (
     return data;
   } catch (error) {
     return false;
+  }
+};
+export const DeleteBrandRequiest = async (id) => {
+  try {
+    const URL = BASEURL + "/DeleteBrand/" + id;
+    const { data } = await axios.delete(URL, Headers);
+    return data;
+  } catch (error) {
+    console.error("Error delete product", error);
+    throw error; // Rethrow the error to be caught by the caller
+  }
+};
+export const DeleteCategoryRequiest = async (id) => {
+  try {
+    const URL = BASEURL + "/DeleteCategory/" + id;
+    const { data } = await axios.delete(URL, Headers);
+    return data;
+  } catch (error) {
+    console.error("Error delete product", error);
+    throw error; // Rethrow the error to be caught by the caller
+  }
+};
+export const ProductSliderDeleteRequiest = async (id) => {
+  try {
+    const URL = BASEURL + "/DeleteSlider/" + id;
+    const { data } = await axios.delete(URL, Headers);
+    return data;
+  } catch (error) {
+    console.error("Error delete product", error);
+    throw error; // Rethrow the error to be caught by the caller
   }
 };
