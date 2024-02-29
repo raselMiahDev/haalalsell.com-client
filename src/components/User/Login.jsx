@@ -3,6 +3,8 @@ import toast, { Toaster } from "react-hot-toast";
 import { UserLoginRequest } from "../../API/apiRequiest.js";
 import SubmitButton from "../common/SubmitButton.jsx";
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+import { fadeInUp } from "../../helper/animation.js";
 const Login = () => {
   const [BtnLoader, SetBtnLoader] = useState(false);
   const [formData,setFormData] = useState({
@@ -39,7 +41,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="p-5">
+    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="p-5">
       <div className="row d-flex justify-content-center">
         <div className="col-md-6">
           {/* card start  */}
@@ -76,7 +78,7 @@ const Login = () => {
         </div>
       </div>
       <Toaster position={"bottom-center"} />
-    </div>
+    </motion.div>
   );
 };
 

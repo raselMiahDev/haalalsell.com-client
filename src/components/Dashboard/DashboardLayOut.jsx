@@ -1,8 +1,8 @@
 import React, { Fragment, useRef } from 'react';
 import { Accordion, Container, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import {AiOutlineBank,AiOutlineUnorderedList, AiOutlineLogout, AiOutlineMenu, AiOutlineUser} from 'react-icons/ai';
-import {BsBagPlus, BsBagX, BsBox, BsCartPlus, BsCircle, BsGraphUp, BsPeople} from 'react-icons/bs';
+import {AiOutlineBank,AiOutlineLogout, AiOutlineMenu, AiOutlineUser} from 'react-icons/ai';
+import { BsCircle, BsPeople} from 'react-icons/bs';
 import {RiDashboardLine} from 'react-icons/ri';
 import {TbTruckDelivery} from 'react-icons/tb'
 import logo from "../../assets/images/logo.png"
@@ -147,7 +147,7 @@ const DashboardLayOut = (props) => {
 
             <div className="float-right h-auto d-flex align-items-center">
               <div className="user-dropdown">
-                {/* <img className="icon-nav-img icon-nav" src={getUserDetails()['photo']} alt=""/> */}
+                <div className='rounded-pill p-2 bg-white'>{getUserDetails()['fullName']}</div>
                 <div className="user-dropdown-content ">
                   <div className="mt-4 text-center">
                     {/* <img className="icon-nav-img" src={getUserDetails()['photo']} alt=""/> */}
@@ -156,7 +156,7 @@ const DashboardLayOut = (props) => {
                   </div>
                   <NavLink to="/profile" className="side-bar-item">
                     <AiOutlineUser className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Profile</span>
+                    {/* <span className="side-bar-item-caption">Profile</span> */}
                   </NavLink>
                   <a onClick={onLogout}  className="side-bar-item">
                     <AiOutlineLogout className="side-bar-item-icon" />

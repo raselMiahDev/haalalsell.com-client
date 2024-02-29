@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ProductListByRemarkRequest } from "../../API/apiRequiest.js";
 import "../../assets/css/productCard.css";
 import ProductCard from "../Products/ProductCard.jsx";
+import ProductCardTwo from "../Products/ProductCardTwo.jsx";
 const Products = () => {
   const [data_new, setData_new] = useState([]);
   const [data_trending, setData_trending] = useState([]);
@@ -96,7 +97,7 @@ const Products = () => {
                   aria-labelledby="pills-home-tab"
                   tabIndex="0"
                 >
-                  <ProductCard data={data_new}/>
+                  <ProductCardTwo data={data_new}/>
                 </div>
 
                 <div
@@ -106,7 +107,7 @@ const Products = () => {
                   aria-labelledby="pills-profile-tab"
                   tabIndex="0"
                 >
-                  <ProductCard data={data_trending}/>
+                  <ProductCardTwo data={data_trending}/>
                 </div>
 
                 <div
@@ -116,7 +117,7 @@ const Products = () => {
                   aria-labelledby="pills-contact-tab"
                   tabIndex="0"
                 >
-                  <ProductCard data={data_popular}/>
+                  <ProductCardTwo data={data_popular}/>
                 </div>
 
                 <div
@@ -126,7 +127,7 @@ const Products = () => {
                   aria-labelledby="pills-disabled-tab"
                   tabIndex="0"
                 >
-                  <ProductCard data={data_top}/>
+                  <ProductCardTwo data={data_top}/>
                 </div>
 
                 <div
@@ -136,7 +137,7 @@ const Products = () => {
                   aria-labelledby="pills-disabled-tab"
                   tabIndex="0"
                 >
-                   <ProductCard data={data_special}/>
+                   <ProductCardTwo data={data_special}/>
                 </div>
               </div>
             </div>

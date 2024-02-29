@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import {UserSignUpRequest} from "../../API/apiRequiest"
 import {IsEmail,IsEmpty,ErrorToast,SuccessToast} from "../../helper/FormHelper"
 import SubmitButton from "../common/SubmitButton";
+import { motion } from 'framer-motion';
+import { fadeInUp } from "../../helper/animation.js";
 const SignUp = () => {
     const navigate = useNavigate();
     const [BtnLoader, SetBtnLoader] = useState(false);
@@ -39,7 +41,7 @@ const SignUp = () => {
         }
       };
     return (
-        <div className='container py-5'>
+        <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className='container py-5'>
             <div className="row">
                 <div className="col-12 col-md-6">
                     <img src={Logo} width={400} alt="" />
@@ -69,7 +71,7 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

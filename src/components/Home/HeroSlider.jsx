@@ -50,7 +50,7 @@ const HeroSlider = () => {
                       <p>{item["short_des"]}</p>
                       <Link
                         to={"/details/" + item["_id"]}
-                        className="btn text-white btn-dark px-5 mt-3"
+                        className="btn btn-warning text-white px-5 mt-3"
                       >
                         Buy Now
                       </Link>

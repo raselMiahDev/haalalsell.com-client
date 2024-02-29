@@ -1,6 +1,8 @@
 import { CiDeliveryTruck } from "react-icons/ci";
 import { BiSupport } from "react-icons/bi";
 import { VscVerified } from "react-icons/vsc";
+import { motion } from 'framer-motion';
+import { fadeInUp } from "../../helper/animation"
 const Services = () => {
     const data =[
         {
@@ -23,7 +25,7 @@ const Services = () => {
         }
     ]
   return (
-    <div className="container py-5">
+    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition}  className="container py-5">
       <div className="row my-5">
             {
                 data.map((item)=>{
@@ -41,7 +43,7 @@ const Services = () => {
                 })
             }
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CategoryListRequest } from "../../API/apiRequiest.js";
 import CartListSkeleton from "../../Skeleton/CategoriesSkeleton.jsx";
+import {motion} from "framer-motion"
+import { fadeInUp } from "../../helper/animation.js";
 
 const Categories = () => {
   const [data, setData] = useState([]);
@@ -14,36 +16,31 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="section">
-      <div className="container">
-        <div className="row">
+    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="section">
+      <div className="container py-3">
+        <div className="row g-2">
           <h4 className="my-3 p-0">Browse by category</h4>
-          {data.length > 0 ? (
-            data.map((item, i) => {
-              return (
-                <div
-                  key={i}
-                  className="col-6 col-md-2 col-lg-8r text-center col-md-8r"
-                >
-                  <Link
-                    to={"/product-by-category/" + item["_id"]}
-                    style={{ textDecoration: "none" }}
-                    className="card h-100 category-hover"
-                  >
-                    <div className="card-body">
-                      <img className="w-50 h-50" src={item["categoryImg"]} />
-                      <p className="mt-3">{item["categoryName"]}</p>
-                    </div>
-                  </Link>
+          {
+            data.length > 0 ? (
+              data.map((item)=>{
+                return(
+                  <div className="col-6 col-md-2">
+                    <Link to={"/product-by-category/" + item["_id"]} style={{ textDecoration: "none" }}>
+                      <div className="custom_card rounded shadow p-3">
+                          <img src={item["categoryImg"]} alt="" width={100} height={100}/>
+                          <div className="pt-3">
+                            <span>{item["categoryName"]}</span>
+                          </div>
+                      </div>
+                    </Link>
                 </div>
-              );
-            })
-          ) : (
-              <CartListSkeleton/>
-          )}
+                )
+              })
+            ):(<CartListSkeleton/>)
+          }
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

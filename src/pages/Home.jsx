@@ -6,6 +6,7 @@ import Products from '../components/Home/Products';
 import Services from '../components/Home/Services';
 import FeaturedProduct from '../components/Home/FeaturedProduct';
 import Brands from '../components/Home/Brands';
+import ProductCardTwo from '../components/Products/ProductCardTwo';
 
 const Home = () => {
     return (

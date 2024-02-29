@@ -52,3 +52,117 @@ a{
     /* background-color: #18253a; */
     background-image: url("./assets/images/hero-bg.svg");
 }
+
+.custom_card{
+    background-color: white;
+    text-align: center;
+    padding: 7px;
+
+}
+.custom_card:hover{
+    background-color: #F6F193;
+    transition: ease-in-out 0.5s;
+    cursor: pointer;
+}
+.custom_card:hover img{
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+/* ========================================================== */
+/* 				  		     Product card                     */
+/* ========================================================== */
+
+.team-box{
+	background-color: #eef0f1;
+    border-bottom: 3px solid #e0e0e0;
+	margin-bottom:20px;
+	padding:1px 20px 15px 20px;
+	-webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.team-box h3{
+	margin:20px 0 1px 0!important;
+	color:#454545;
+	font-size:18px;
+	text-transform:uppercase;
+	transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+}
+
+.team-item:hover h3{
+	color:#228798;
+}
+
+.team-box p.team-info{
+	font-size:16px;
+	font-style:italic;
+	margin-bottom:5px;
+}
+
+.team-popup{
+	display:block;
+	position:relative;
+	overflow:hidden;
+    background-color:#34b1c4;
+}
+
+.team-popup .team-popup-overlay {
+	background-color:#000;
+	position: absolute;
+	display: block;
+	overflow:hidden;
+	z-index: 2;
+	height:100%!important;
+	top: 0%;
+	margin-top: 0px;
+	left: 0%;
+	right: 0%;
+	font-size: 22px;
+	color:#fff;
+	text-align: center;
+	font-weight:300;
+	opacity: 0;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+
+.team-popup .team-popup-overlay .team-icon{
+	position: absolute;
+	display: inline-block;
+	z-index: 3000;
+	top: 50%!important;
+	margin-top: -15px!important;
+	left: 0%;
+	right: 0%;
+}
+
+.team-popup .team-popup-overlay .team-icon a{
+	margin:0 3px;
+	color:#fff;
+	font-size: 28px;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+
+.team-popup .team-popup-overlay .team-icon a:hover{
+	color:#34b1c4;
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+}
+
+.team-popup .team-popup-overlay:hover{
+	opacity: 0.8!important;
+}
