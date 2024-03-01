@@ -40,7 +40,7 @@ const SmilierProduct = (props) => {
                                 return(
                                     <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-12">
                                         <Link to={"/details/" + item["_id"]}  style={{ textDecoration: "none" }} className="card shadow-sm h-100 rounded-3 bg-white">
-                                            <img src={PImage} className="card-img-top" alt="..." />
+                                            <img src={item['image']} className="card-img-top" alt="..." />
                                             <div className="card-body">
                                                 <p className="bodySmal text-secondary my-1">{item['title']}</p>
                                                 {price}

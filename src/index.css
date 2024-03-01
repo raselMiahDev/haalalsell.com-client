@@ -5,6 +5,7 @@ body{
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+	background-color: #fff !important;
 }
 
 .category-hover:hover{
@@ -16,12 +17,13 @@ a{
     color: black !important;
 }
 .search_bar{
-    width: 450px;
+    width: 480px;
     height: 40px;
     padding:15px;
-    font-size: 13px;
+    font-size: 17px;
+	color: #F6F193;
     border: none;
-    background-color: aliceblue;
+    background-color: rgb(43, 43, 44);
 }
 .search_bar:focus{
     border: none;

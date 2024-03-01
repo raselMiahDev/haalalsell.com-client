@@ -6,7 +6,6 @@ import TopHeader from '../common/TopHeader';
 const MasterLayout = ({children}) => {
     return (
         <div>
-            <TopHeader/>
             <HeaderTwo/>
             {children}
             <Footer/>

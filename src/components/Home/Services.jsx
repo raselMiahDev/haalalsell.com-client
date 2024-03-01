@@ -25,7 +25,7 @@ const Services = () => {
         }
     ]
   return (
-    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition}  className="container py-5">
+    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition}  className=" py-5 bg-light">
       <div className="row my-5">
             {
                 data.map((item)=>{

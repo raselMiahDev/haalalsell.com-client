@@ -119,15 +119,15 @@ const Details = () => {
   };
 
   return (
-    <div>
-      <div className="container mt-5">
+    <div className="section">
+      <div className="container mt-3">
         <div className="row">
-          <div className="col-md-7 p-3">
+          <div className="col-md-7">
             <ProductImages images={images} />
           </div>
 
-          <div className="col-md-5 p-3">
-            <h4>{data[0] ? data[0]["title"] : ""}</h4>
+          <div className="col-md-5 p-4">
+            <h3>{data[0] ? data[0]["title"] : ""}</h3>
             <p className="bodySmal mb-2 mt-1">
               {data[0] ? data[0]["shortDes"] : ""}
             </p>

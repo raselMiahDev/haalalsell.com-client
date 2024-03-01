@@ -32,7 +32,7 @@ const HeroSlider = () => {
             ></button>
           ))
         ) : (
-          <SliderSkeleton/>
+          "No Data Found"
         )}
       </div>
       <div className="carousel-inner">
@@ -50,7 +50,7 @@ const HeroSlider = () => {
                       <p>{item["short_des"]}</p>
                       <Link
                         to={"/details/" + item["_id"]}
-                        className="btn btn-warning text-white px-5 mt-3"
+                        className="btn btn-dark text-white px-5 mt-3"
                       >
                         Buy Now
                       </Link>

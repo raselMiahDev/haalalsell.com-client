@@ -17,7 +17,7 @@ const Categories = () => {
 
   return (
     <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="section">
-      <div className="container py-3">
+      <div className="container py-4">
         <div className="row g-2">
           <h4 className="my-3 p-0">Browse by category</h4>
           {
@@ -26,7 +26,7 @@ const Categories = () => {
                 return(
                   <div className="col-6 col-md-2">
                     <Link to={"/product-by-category/" + item["_id"]} style={{ textDecoration: "none" }}>
-                      <div className="custom_card rounded shadow p-3">
+                      <div className="custom_card rounded  border p-3">
                           <img src={item["categoryImg"]} alt="" width={100} height={100}/>
                           <div className="pt-3">
                             <span>{item["categoryName"]}</span>
