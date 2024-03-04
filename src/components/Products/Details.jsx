@@ -231,9 +231,12 @@ const Details = () => {
                   className="btn w-100 btn-outline-dark"
                 />
               </div>
+              <div className="py-3">
+                <h3>Contact : 01705-057053</h3>
+              </div>
             </div>
             {/* Brand & category name */}
-            <div className="py-5">
+            <div className="">
               <p>
                 <strong className="fw-bold">Category: </strong> {data[0] ? data[0]["category"]["categoryName"] : ""}
               </p>
@@ -245,10 +248,10 @@ const Details = () => {
         </div>
 
         <div className="row mt-5">
-          <ul className="nav nav-pills pb-3" id="myTab" role="tablist">
+          <ul className="nav nav-pills pb-3 gap-2" id="myTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link active"
+                className="nav-link bg-dark px-5 active"
                 id="Speci-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#Speci-tab-pane"
@@ -262,7 +265,7 @@ const Details = () => {
             </li>
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link"
+                className="nav-link bg-dark px-5"
                 id="Review-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#Review-tab-pane"

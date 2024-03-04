@@ -97,7 +97,7 @@ const Products = () => {
                   aria-labelledby="pills-home-tab"
                   tabIndex="0"
                 >
-                  <ProductCardTwo data={data_new}/>
+                  <ProductCard data={data_new}/>
                 </div>
 
                 <div
@@ -107,7 +107,7 @@ const Products = () => {
                   aria-labelledby="pills-profile-tab"
                   tabIndex="0"
                 >
-                  <ProductCardTwo data={data_trending}/>
+                  <ProductCard data={data_trending}/>
                 </div>
 
                 <div
@@ -117,7 +117,7 @@ const Products = () => {
                   aria-labelledby="pills-contact-tab"
                   tabIndex="0"
                 >
-                  <ProductCardTwo data={data_popular}/>
+                  <ProductCard data={data_popular}/>
                 </div>
 
                 <div
@@ -127,7 +127,7 @@ const Products = () => {
                   aria-labelledby="pills-disabled-tab"
                   tabIndex="0"
                 >
-                  <ProductCardTwo data={data_top}/>
+                  <ProductCard data={data_top}/>
                 </div>
 
                 <div
@@ -137,7 +137,7 @@ const Products = () => {
                   aria-labelledby="pills-disabled-tab"
                   tabIndex="0"
                 >
-                   <ProductCardTwo data={data_special}/>
+                   <ProductCard data={data_special}/>
                 </div>
               </div>
             </div>

@@ -18,7 +18,7 @@ const ProductCard = (props) => {
                   );
                 }
                 return (
-                  <div className="col-12 col-md-3 d-flex  justify-content-center">
+                  <div key={item['_id']} className="col-6 col-md-3 d-flex  justify-content-center">
                     <div
                       className="rounded shadow-sm position-relative bg-white"
                       style={{ width: "30rem", cursor: "pointer" }}

@@ -7,6 +7,7 @@ import './index.css'
 import "./assets/css/style.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { Toaster } from "react-hot-toast";
+import 'swiper/css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

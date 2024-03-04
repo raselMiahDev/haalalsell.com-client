@@ -48,6 +48,7 @@ const HeroSlider = () => {
                     <div className="col-12 col-lg-5 col-sm-12 col-md-5 p-5">
                       <h1 className="headline-1">{item["title"]}</h1>
                       <p>{item["short_des"]}</p>
+                      <h5>Price : {item['price']}</h5>
                       <Link
                         to={"/details/" + item["_id"]}
                         className="btn btn-dark text-white px-5 mt-3"
@@ -56,7 +57,7 @@ const HeroSlider = () => {
                       </Link>
                     </div>
                     <div className="col-12 col-lg-5 col-sm-12 col-md-5 p-5">
-                      <img src={item["img"]} className="w-100" height={300} alt="..." />
+                      <img src={item["img"]} className="w-100" height={400} alt="..." />
                     </div>
                   </div>
                 </div>

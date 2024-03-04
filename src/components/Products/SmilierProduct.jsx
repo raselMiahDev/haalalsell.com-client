@@ -2,15 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import {ListBySmilierRequest} from "../../API/apiRequiest";
 import StarRatings from "react-star-ratings/build/star-ratings.js";
-import PImage from "../../assets/images/11873.jpg";
 import { FaWhatsappSquare } from "react-icons/fa";
-import { FaCartPlus } from "react-icons/fa6";
 const SmilierProduct = (props) => {
-
     const [data,setData]=useState([])
-
     useEffect(()=>{
-
         (async () => {
             let result= await ListBySmilierRequest(props.categoryID);
             setData(result);
@@ -18,13 +13,11 @@ const SmilierProduct = (props) => {
 
     },[0])
 
-
     return (
         <div className="section">
             <div className="container p-4">
                 <div className="row">
                     <h2 className="headline-4 my-4 p-0">Related Products</h2>
-                    
                     {
                         data.length>0?(
                             data.map((item,i)=>{
@@ -42,7 +35,7 @@ const SmilierProduct = (props) => {
                                         <Link to={"/details/" + item["_id"]}  style={{ textDecoration: "none" }} className="card shadow-sm h-100 rounded-3 bg-white">
                                             <img src={item['image']} className="card-img-top" alt="..." />
                                             <div className="card-body">
-                                                <p className="bodySmal text-secondary my-1">{item['title']}</p>
+                                            <h6 className="card-title py-2">{item["title"]}</h6>
                                                 {price}
                                                 <div className="d-flex justify-content-between">
                                                     <StarRatings
@@ -55,9 +48,6 @@ const SmilierProduct = (props) => {
                                                         <a href="tel:+8801715972211">
                                                         <FaWhatsappSquare color="orange" size={23} />
                                                         </a>
-                                                        <span>
-                                                        <FaCartPlus color="orange" size={23} />
-                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
