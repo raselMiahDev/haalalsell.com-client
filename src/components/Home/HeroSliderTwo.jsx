@@ -19,14 +19,13 @@ const HeroSliderTwo = () => {
     <>
       <Swiper
         loop={true}
-        autoplay={{ delay: 5000,disableOnInteraction:false }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         navigation={true}
-        modules={[Navigation,Autoplay]}
+        modules={[Navigation, Autoplay]}
         className="mySwiper"
       >
-        {
-          data.length >0 ? (
-            data.map((item) => {
+        {data.length > 0
+          ? data.map((item) => {
               return (
                 <SwiperSlide key={item["_id"]}>
                   <div
@@ -38,24 +37,23 @@ const HeroSliderTwo = () => {
                       backgroundSize: "cover",
                     }}
                   >
-                    <div className="d-flex align-items-end justify-content-center h-75">
-                        <div>
-                      <h1 className="headline-1">{item["title"]}</h1>
-                      <h5>Price : {item["price"]}</h5>
-                      <Link
-                        to={"/details/" + item["_id"]}
-                        className="btn btn-outline-warning text-white fw-bold py-3 px-5"
-                      >
-                        Buy Now
-                      </Link>
-                        </div>
+                    <div className="d-flex align-items-center container h-75">
+                      <div className="text-start">
+                        <h1 className="poppins-black-italic">{item["title"]}</h1>
+                        <p className="pb-3 poppins-regular-italic">Price : {item["price"]}</p>
+                        <Link
+                          to={"/details/" + item["_id"]}
+                          className="btn btn-warning text-white fw-bold py-2 px-5"
+                        >
+                          Shop Now
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
               );
             })
-          ):("Loading...")
-        }
+          : "Loading..."}
       </Swiper>
     </>
   );

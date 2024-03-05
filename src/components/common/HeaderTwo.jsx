@@ -25,7 +25,7 @@ const HeaderTwo = () => {
     removeSession();
   };
   return (
-    <Navbar expand="lg" className="shadow-sm py-3 bg-dark">
+    <Navbar expand="lg" className="shadow-sm py-3" style={{backgroundColor:"#333A73"}}>
       <Container>
         <Link to="/">
           <img src={Logo} width={200} alt="" />
@@ -47,7 +47,7 @@ const HeaderTwo = () => {
               <div className="px-2">
                 <button
                   onClick={onSearch}
-                  className="btn btn-outline-warning"
+                  className="btn btn-success"
                   type="submit"
                 >
                   <svg
@@ -69,11 +69,15 @@ const HeaderTwo = () => {
             </Form>
           </Nav>
           <Nav>
+          <Link className="px-2" to="/cart-list">
+              <PiShoppingCartLight size={30} className="text-white" />
+              <span className="text-white">0</span>
+            </Link>
             {getToken() ? (
               <>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-outline-warning btn-sm"
+                  className="btn btn-success btn-sm"
                 >
                   Log Out
                 </button>
@@ -82,16 +86,13 @@ const HeaderTwo = () => {
               <>
                 <Link
                   to="/login"
-                  className="text-white px-1 btn btn-warning btn-sm px-3"
+                  className="text-white px-1 btn btn-success btn-sm px-3"
                 >
                   Login
                 </Link>
               </>
             )}
-            <Link className="px-2" to="/cart-list">
-              <PiShoppingCartLight size={30} color="#ffd600" />
-              <span className="text-white">0</span>
-            </Link>
+
           </Nav>
         </Navbar.Collapse>
       </Container>
