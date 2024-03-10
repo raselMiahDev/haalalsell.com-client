@@ -101,12 +101,22 @@ export async function UserLoginRequest(phoneNumber, password) {
     return false;
   }
 }
-export async function UserSignUpRequest(fullName, phoneNumber, password) {
+export async function UserSignUpRequest(
+  fullName,
+  phoneNumber,
+  email,
+  address,
+  postCode,
+  password
+) {
   try {
     let URL = BASEURL + "/api/v1/signUp";
     let formData = {
       fullName: fullName,
       phoneNumber: phoneNumber,
+      email: email,
+      address: address,
+      postCode: postCode,
       password: password,
     };
     let result = await axios.post(URL, formData);

@@ -12,7 +12,10 @@ import Specifications from "./Specifications.jsx";
 import Review from "./Review.jsx";
 import toast, { Toaster } from "react-hot-toast";
 import SubmitButton from "../common/SubmitButton.jsx";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slice/cartSlice.js";
 const Details = () => {
+  const dispatch = useDispatch();
   let { id } = useParams();
   const [data, setData] = useState([]);
   const [images, setImages] = useState([]);
@@ -33,7 +36,6 @@ const Details = () => {
       [name]: value,
     }));
   };
-  console.log(quantity);
   useEffect(() => {
     (async () => {
       let result = await DetailsListRequest(id);
@@ -90,21 +92,17 @@ const Details = () => {
     }
   };
 
-  const AddCart = async () => {
-    if (cartData["color"].length === 0) {
-      toast.error("Color Required!");
-    } else if (cartData["size"].length === 0) {
-      toast.error("Size Required!");
-    } else {
+  const AddCart = async () => { 
       SetBtnLoader(true);
+
       let res = await CreateCartListRequest(cartData);
+      await dispatch(addToCart(cartData))
       SetBtnLoader(false);
       if (res["status"] === "success") {
         toast.success(res["message"]);
       } else {
-        toast.error(res["message"]);
+        toast.error("Please login first");
       }
-    }
   };
 
   const AddWish = async () => {

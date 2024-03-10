@@ -75,7 +75,7 @@ const Header = () => {
                   )
                 }else {
                   return (
-                      <Link to="/login" type="button" className="btn ms-3 btn-primary d-flex"><i className="bi mx-1 bi-person"></i> Login</Link>
+                      <Link to="/login" type="button" className="btn ms-3 btn-success d-flex"><i className="bi mx-1 bi-person"></i> Login</Link>
                   )
                 }
               })()

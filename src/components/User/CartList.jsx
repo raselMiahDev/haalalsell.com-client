@@ -7,8 +7,12 @@ import {
 import CartListSkeleton from "../../Skeleton/CartListSkeleton.jsx";
 import toast, { Toaster } from "react-hot-toast";
 import { Modal } from "react-bootstrap";
+import { MdDeleteSweep } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { removeTocart } from "../../redux/slice/cartSlice.js";
 
 const CartList = () => {
+  const dispatch = useDispatch();
   const [data_new, setData_new] = useState([]);
   const [refresh, setRefresh] = useState(0);
   const [BtnLoader, SetBtnLoader] = useState(false);
@@ -20,8 +24,12 @@ const CartList = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   useEffect(() => {
+    CalculatePayable(); // Calculate payable when data_new changes
+  }, [data_new]);
+  
+  useEffect(() => {
     (async () => {
-      await CalculatePayable();
+      await CalculatePayable()
       let cartList = await CartListRequest();
       setData_new(cartList);
     })();
@@ -31,6 +39,7 @@ const CartList = () => {
   const Remove = async (productID) => {
     setData_new([]);
     let data = await RemoveCartListRequest(productID);
+    await dispatch(removeTocart(productID))
     if (data["status"] === "success") {
       toast.success(data["message"]);
     } else {
@@ -54,18 +63,18 @@ const CartList = () => {
       data_new.map((item, i) => {
         sum = sum + parseInt(item["price"]);
       });
-      SetPayable(sum);
+       SetPayable(sum);
     }
   };
 
   return (
-    <div>
+    <div className="section py-5">
       {data_new.length === 0 ? (
         <CartListSkeleton />
       ) : (
         <div className="container my-5">
           <div className="row">
-            <div className=" col-md-9">
+            <div className="col-12 col-md-8">
               <table className="table">
                 <thead>
                   <tr>
@@ -109,7 +118,7 @@ const CartList = () => {
                             }}
                             className="btn btn-danger btn-sm"
                           >
-                            Remove
+                            <MdDeleteSweep size={20}/>
                           </button>
                         </td>
                       </tr>
@@ -119,22 +128,22 @@ const CartList = () => {
               </table>
             </div>
 
-            <div className="col-md-3 card p-3">
+            <div className="col-12 col-md-4 shadow rounded p-4 border-start border-primary">
               <div className="d-flex justify-content-between">
                 <span>Total Amount</span>
-                <hr/>
-                <h6>{Payable}</h6>
+                  <hr/>
+                  <h5>{Payable} BDT</h5>
               </div>
-              <div className="pt-3">
-                <p>Send Money- Bkash/Nogod/Rocket</p>
-                <h4>01755551111</h4>
+              <div className="py-3">
+                <h5>Cash On Delivery</h5>
               </div>
+              <button className="btn btn-primary">Place Order</button>
             </div>
           </div>
         </div>
       )}
 
-      <Modal show={show} onHide={handleClose}>
+      {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <h6>Pay Now</h6>
         </Modal.Header>
@@ -158,8 +167,7 @@ const CartList = () => {
             Close
           </button>
         </Modal.Footer>
-      </Modal>
-      <Toaster position={"bottom-center"} />
+      </Modal> */}
     </div>
   );
 };

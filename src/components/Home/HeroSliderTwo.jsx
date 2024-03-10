@@ -5,6 +5,8 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { motion } from 'framer-motion';
+import {fadeInUp} from "../../helper/animation.js"
 
 const HeroSliderTwo = () => {
   const [data, setData] = useState([]);
@@ -28,17 +30,19 @@ const HeroSliderTwo = () => {
           ? data.map((item) => {
               return (
                 <SwiperSlide key={item["_id"]}>
+
                   <div
+                    className="swiper-slide w-100"
                     style={{
                       backgroundImage: `url(${item["img"]})`,
-                      height: "80vh",
-                      width: "100%",
+                      backgroundSize:"cover",
+                      height:"90vh",
                       backgroundRepeat: "no-repeat",
-                      backgroundSize: "cover",
                     }}
+
                   >
-                    <div className="d-flex align-items-center container h-75">
-                      <div className="text-start">
+                    <div className="d-flex align-items-center container h-50">
+                      <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="text-start">
                         <h1 className="poppins-black-italic">{item["title"]}</h1>
                         <p className="pb-3 poppins-regular-italic">Price : {item["price"]}</p>
                         <Link
@@ -47,7 +51,7 @@ const HeroSliderTwo = () => {
                         >
                           Shop Now
                         </Link>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </SwiperSlide>

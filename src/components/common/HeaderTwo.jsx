@@ -8,10 +8,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getToken, removeSession } from "../../helper/SessionHelper";
+import { useSelector } from "react-redux";
 
 const HeaderTwo = () => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const navigate = useNavigate();
+  const getValue = useSelector((state)=>state.cart.value)
 
   const onSearch = (e) => {
     e.preventDefault();
@@ -40,14 +42,14 @@ const HeaderTwo = () => {
             <Form className="d-flex">
               <input
                 onChange={(e) => setSearchKeyword(e.target.value)}
-                className="search_bar border-start"
+                className="search_bar"
                 type="text"
                 placeholder="Search For Products"
               />
-              <div className="px-2">
+              <div className="">
                 <button
                   onClick={onSearch}
-                  className="btn btn-success"
+                  className="btn btn-primary search_icon"
                   type="submit"
                 >
                   <svg
@@ -55,7 +57,7 @@ const HeaderTwo = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    style={{ width: 24, height: 24 }}
+                    style={{ width: 25, height: 25 }}
                   >
                     <path
                       strokeLinecap="round"
@@ -69,15 +71,15 @@ const HeaderTwo = () => {
             </Form>
           </Nav>
           <Nav>
-          <Link className="px-2" to="/cart-list">
+          <Link className="px-3" to="/cart-list">
               <PiShoppingCartLight size={30} className="text-white" />
-              <span className="text-white">0</span>
+              <span className="text-warning">{getValue.length}</span>
             </Link>
             {getToken() ? (
               <>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-success btn-sm"
+                  className="btn btn-primary btn-sm"
                 >
                   Log Out
                 </button>
@@ -86,7 +88,7 @@ const HeaderTwo = () => {
               <>
                 <Link
                   to="/login"
-                  className="text-white px-1 btn btn-success btn-sm px-3"
+                  className="text-white px-1 btn btn-primary btn-sm px-3"
                 >
                   Login
                 </Link>

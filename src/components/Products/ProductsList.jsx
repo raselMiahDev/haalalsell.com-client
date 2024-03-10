@@ -1,46 +1,74 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings/build/star-ratings.js";
+import { TbJewishStar } from "react-icons/tb";
+
 
 const ProductsList = (props) => {
   return (
     <div>
-      <div className="container my-5">
-        <div className="row">
+      <div className="container py-5">
+        <div className="row g-3">
           {props.data.map((item, i) => {
-            let price = (
-              <p className="bodyMedium  text-dark my-1">
-                Price: ৳ {item["price"]}{" "}
-              </p>
-            );
-            if (item["discount"] === true) {
-              price = (
-                <p className="bodyMedium  text-dark my-1">
-                  Price: <strike>${item["price"]}</strike> $
-                  {item["discountPrice"]}
-                </p>
-              );
-            }
+            // let price = (
+            //   <p className="bodyMedium  text-dark my-1">
+            //     Price: ৳ {item["price"]}{" "}
+            //   </p>
+            // );
+            // if (item["discount"] === true) {
+            //   price = (
+            //     <p className="bodyMedium  text-dark my-1">
+            //       Price: <strike>${item["price"]}</strike> $
+            //       {item["discountPrice"]}
+            //     </p>
+            //   );
+            // }
 
             return (
-              <div className="col-md-3 p-2 col-lg-3 col-sm-6 col-6">
-                <Link
-                style={{textDecoration:"none"}}
-                  to={"/details/" + item["_id"]}
-                  className="card shadow-sm rounded"
-                >
-                  <img height={250} src={item["image"]} />
-                  <div className="card-body">
-                  <h6 className="card-title py-2">{item["title"]}</h6>
-                    {price}
-                    <StarRatings
-                      rating={parseFloat(item["star"])}
-                      starRatedColor="red"
-                      starDimension="15px"
-                      starSpacing="2px"
-                    />
+              <div className="col-md-12 col-12">
+                <div className="card d-flex justify-content-center">
+                  <div className="row">
+
+                    <div className="col-12 col-md-4 text-center">
+                      <img height={220} width={270} src={item["image"]} />
+                    </div>
+
+                    <div className="col-12 col-md-8 py-3 px-5">
+                      <div className="d-flex justify-content-between">
+                      <h6 className="w-75">{item["title"]}</h6>
+                      <p className="p-1 border text-primary">
+                      <TbJewishStar size={20}/>
+                      </p>
+                      </div>
+                      <div className="pt-2">
+                        <p className="fw-bold">৳ {item["price"]}</p>
+                      </div>
+                      <div className="d-flex gap-3">
+                        <StarRatings
+                          rating={parseFloat(item["star"])}
+                          starRatedColor="red"
+                          starDimension="15px"
+                          starSpacing="4px"
+                        />
+                        <p className="text-success">Free Shipping</p>
+                      </div>
+                      <div>
+                        <p>{item['shortDes']}</p>
+                      </div>
+
+                      <div>
+                        <Link
+                          style={{ textDecoration: "none" }}
+                          to={"/details/" + item["_id"]}
+                        >
+                          <button className="btn p-0 text-primary">
+                            View details
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </Link>
+                </div>
               </div>
             );
           })}

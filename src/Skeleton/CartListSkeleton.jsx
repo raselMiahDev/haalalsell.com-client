@@ -9,6 +9,7 @@ const ProductsSkeleton = () => {
     <div className="container mt-5">
       <div className="row">
         <div className="col-12">
+          <h3>Your cart list is empty</h3>
           <table className="table">
             <thead>
               <tr>
@@ -30,91 +31,19 @@ const ProductsSkeleton = () => {
                   />
                 </td>
                 <td>
-                  <Skeleton count={1} />
+                  <Skeleton count={3} />
                 </td>
                 <td>
-                  <Skeleton count={1} />
+                  <Skeleton count={3} />
                 </td>
                 <td>
-                  <Skeleton count={1} />
+                  <Skeleton count={3} />
                 </td>
                 <td>
-                  <Skeleton count={1} />
+                  <Skeleton count={3} />
                 </td>
                 <td>
-                  <Skeleton count={1} />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <Lottie
-                    className=" w-25"
-                    animationData={ImagePlaceholder}
-                    loop={true}
-                  />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <Lottie
-                    className="w-25"
-                    animationData={ImagePlaceholder}
-                    loop={true}
-                  />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <Lottie
-                    className="w-25"
-                    animationData={ImagePlaceholder}
-                    loop={true}
-                  />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
-                </td>
-                <td>
-                  <Skeleton count={1} />
+                  <Skeleton count={3} />
                 </td>
               </tr>
             </tbody>

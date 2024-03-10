@@ -41,7 +41,7 @@ const Login = () => {
     }
   };
   return (
-    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="p-5">
+    <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="py-5 px-2">
       <div className="row d-flex justify-content-center">
         <div className="col-md-6">
           {/* card start  */}
