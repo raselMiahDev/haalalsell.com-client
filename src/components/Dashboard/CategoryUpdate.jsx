@@ -1,63 +1,68 @@
-import React, { useRef, useState } from "react";
-import { CreateBrandRequiest } from "../../API/AdminApiRequiest";
+import React, { useRef, useState, useEffect } from "react";
+import { CategoryUpdateRequiest } from "../../API/AdminApiRequiest";
+import { CategoryDetailsByIdRequest } from "../../API/apiRequiest";
 import toast, { Toaster } from "react-hot-toast";
 import { getBase64 } from "../../helper/FormHelper";
 import SubmitButton from "../common/SubmitButton";
-const AddBrand = () => {
+import { useNavigate, useParams } from "react-router-dom";
+
+const CategoryUpdate = () => {
+  const [category, setCategory] = useState();
   let nameRef,
     imageRef,
-    brandImageView = useRef();
+    ImageViewRef = useRef();
   const [BtnLoader, SetBtnLoader] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    (async () => {
+      const result = await CategoryDetailsByIdRequest(id);
+      setCategory(result?.[0]);
+    })();
+  }, []);
 
   const previewImage = () => {
     let imageFile = imageRef.files[0];
     getBase64(imageFile).then((res) => {
-        brandImageView.src = res;
+        ImageViewRef.src = res;
     });
   };
 
   const onSubmit = async () => {
     let name = nameRef.value;
     let imageFile = imageRef.files[0];
-    
-    if (name.length === 0) {
-      toast.error("Name is required");
-    } else if (!imageFile) {
-      toast.error("Please select an image");
-    } else {
+    try {
       SetBtnLoader(true);
-      
-      // Convert image file to base64
       const base64Image = await getBase64(imageFile);
-      
-      await CreateBrandRequiest(name, base64Image).then((res) => {
-        if (res && res.status === true) { // Check if response exists and status is true
-          toast.success(res.message);
+      await CategoryUpdateRequiest(id, name, base64Image).then((res) => {
+        if (res && res.status === "success") {
+          toast.success("Update success");
+          navigate("/CategoryList");
         }
-      }).catch(error => {
-        toast.error("An error occurred while creating the category");
-        console.error("Error creating category:", error);
       });
-      
+    } catch (error) {
+      toast.error("Something went wrong");
+    } finally {
       SetBtnLoader(false);
     }
   };
-  
-
   return (
     <div className="container p-5 bg-white">
+      <h3>Update Category status</h3>
       <div className="row">
         <div className="col-md-8">
           <div>
-            <label className="pb-2">Brand Name</label>
+            <label className="pb-2">Category Name</label>
             <input
+              defaultValue={category?.["categoryName"]}
               type="text"
               ref={(input) => (nameRef = input)}
               className=" form-control-sm form-control"
             />
           </div>
           <div>
-            <label className="pt-2">Brand Image</label>
+            <label className="pt-2">Category Image</label>
             <input
               type="file"
               onChange={previewImage}
@@ -68,15 +73,15 @@ const AddBrand = () => {
           <div className="pt-4">
             <SubmitButton
               submit={BtnLoader}
-              text="Submit"
+              text="Update"
               onClick={onSubmit}
-              className="btn btn-success"
+              className="btn btn-success px-3"
             />
           </div>
         </div>
         <div className="col-md-4 card d-flex justify-content-center">
           <img
-            ref={(input) => (brandImageView = input)}
+            ref={(input) => (ImageViewRef = input)}
             className="w-50"
             alt=""
           />
@@ -86,4 +91,4 @@ const AddBrand = () => {
   );
 };
 
-export default AddBrand;
+export default CategoryUpdate;

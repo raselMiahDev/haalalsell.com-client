@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { DeleteBrandRequiest } from "../../API/AdminApiRequiest";
 import toast, { Toaster } from "react-hot-toast";
 const BrandList = (props) => {
@@ -34,7 +35,7 @@ const BrandList = (props) => {
                             <td>{item['brandName']}</td>
                             <td>
                                 <div className="btn-group">
-                                    <button className="btn btn-success btn-sm">Edit</button>
+                                    <Link to={`/BrandUpdate/`+item['_id']} className="btn btn-success btn-sm">Edit</Link>
                                     <button onClick={()=>handleSubmit(item['_id'])} className="btn btn-danger btn-sm">Delete</button>
                                 </div>
                             </td>

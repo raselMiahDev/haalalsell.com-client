@@ -41,7 +41,7 @@ const SliderList = () => {
                                 <img src={item['img']} width={50} alt="" />
                             </td>
                             <td>{item['title']}</td>
-                            <td>{item['short_des']}</td>
+                            <td>{item['short_des'].substr(0,30)}</td>
                             <td>{item['price']}</td>
                             <td>
                                 <div className="btn-group">

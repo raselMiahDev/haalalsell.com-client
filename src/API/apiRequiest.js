@@ -1,9 +1,11 @@
 import axios from "axios";
 import unauthorized from "../utility/unauthorized";
 import { setToken, getToken, setUserDetails } from "../helper/SessionHelper";
-// const BASEURL = "https://e-shop-server-seven.vercel.app";
-// const BASEURL = "http://localhost:5000";
-const BASEURL = "https://haalalsell.onrender.com";
+import { addBrand } from "../redux/slice/brandSlice";
+import { useDispatch } from "react-redux";
+
+const BASEURL = "http://localhost:5000";
+// const BASEURL = "https://haalalsell.onrender.com";
 const Headers = { headers: { token: getToken() } };
 export const SliderListRequest = async () => {
   try {
@@ -45,7 +47,6 @@ export async function DetailsListRequest(id) {
   try {
     let result = await axios.get(BASEURL + "/api/v1/ProductDetails/" + id);
     let data = result.data["data"];
-    console.log(data);
     return data;
   } catch (e) {
     return [];
@@ -278,6 +279,26 @@ export async function AllProductsRequest() {
   try {
     let URL = BASEURL + "/api/v1/AllProduct";
     let result = await axios.get(URL);
+    let data = result.data;
+    return data["data"];
+  } catch (e) {
+    return [];
+  }
+}
+export async function BrandDetailsByIdRequest(id) {
+  try {
+    let URL = BASEURL + "/api/v1/BrandDetailsById/" + id;
+    let result = await axios.get(URL, Headers);
+    let data = result.data;
+    return data;
+  } catch (e) {
+    return [];
+  }
+}
+export async function CategoryDetailsByIdRequest(id) {
+  try {
+    let URL = BASEURL + "/api/v1/CategoryDetailsById/" + id;
+    let result = await axios.get(URL, Headers);
     let data = result.data;
     return data["data"];
   } catch (e) {

@@ -18,6 +18,9 @@ import ProductListPage from './pages/Dashboard/ProductListPage';
 import ProductSlidePage from './pages/Dashboard/ProductSlidePage';
 import CategoryListPage from './pages/Dashboard/CategoryListPage';
 import ProductSliderListPage from './pages/Dashboard/ProductSliderListPage';
+import ProductUpdatePage from './pages/Dashboard/Update/ProductUpdatePage';
+import BrandUpdatePage from './pages/Dashboard/Update/BrandUpdatePage';
+import CategoryUpdatePage from './pages/Dashboard/Update/CategoryUpdatePage';
 
 const App = () => {
   const userInfo = getUserDetails()
@@ -27,15 +30,18 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<DashboardPage/>}/>
-            <Route path='/dashboard/productCreateUpdate' element={<ProductCreateUpdatePage/>}/>
-            <Route path='/dashboard/productList' element={<ProductListPage/>}/>
-            <Route path='/dashboard/AddProductDetails' element={<AddProductDetailsPage/>}/>
-            <Route path='/dashboard/AddCategory' element={<AddCategoryPage/>}/>
-            <Route path='/dashboard/AddBrand' element={<AddBrandPage/>}/>
-            <Route path='/dashboard/BrandList' element={<BrandListPage/>}/>
+            <Route path='/productCreateUpdate' element={<ProductCreateUpdatePage/>}/>
+            <Route path='/productList' element={<ProductListPage/>}/>
+            <Route path='/AddProductDetails' element={<AddProductDetailsPage/>}/>
+            <Route path='/AddCategory' element={<AddCategoryPage/>}/>
+            <Route path='/AddBrand' element={<AddBrandPage/>}/>
+            <Route path='/BrandList' element={<BrandListPage/>}/>
             <Route path='/CategoryList' element={<CategoryListPage/>}/>
             <Route path='/CreateProductSlide' element={<ProductSlidePage/>}/>
             <Route path='/DeleteProductSlide' element={<ProductSliderListPage/>}/>
+            <Route path='/UpdateProduct/:id' element={<ProductUpdatePage/>}/>
+            <Route path='/BrandUpdate/:id' element={<BrandUpdatePage/>}/>
+            <Route path='/CategoryUpdate/:id' element={<CategoryUpdatePage/>}/>
           </Routes>
         </BrowserRouter>
       </>

@@ -60,19 +60,19 @@ const DashboardLayOut = (props) => {
         {
           title: 'Add Products',
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: '/dashboard/productCreateUpdate',
+          url: '/productCreateUpdate',
         },
         {
             title: 'Add P/Details',
             icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-            url: '/dashboard/AddProductDetails',
+            url: '/AddProductDetails',
           },
         {
           title: 'Products List',
           icon: (
               <BsCircle size={16} className="side-bar-subitem-icon" />
           ),
-          url: '/dashboard/productList',
+          url: '/productList',
         },
       ],
     },
@@ -84,7 +84,7 @@ const DashboardLayOut = (props) => {
         {
           title: 'Add Category',
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: '/dashboard/AddCategory',
+          url: '/AddCategory',
         },
         {
           title: 'Category List',
@@ -101,14 +101,14 @@ const DashboardLayOut = (props) => {
         {
           title: 'Add Brand',
           icon: <BsCircle size={16} className="side-bar-subitem-icon" />,
-          url: '/dashboard/AddBrand',
+          url: '/AddBrand',
         },
         {
           title: 'Brand List',
           icon: (
               <BsCircle size={16} className="side-bar-subitem-icon" />
           ),
-          url: '/dashboard/BrandList',
+          url: '/BrandList',
         },
       ],
     },

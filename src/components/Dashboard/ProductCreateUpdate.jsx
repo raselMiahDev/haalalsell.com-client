@@ -3,11 +3,13 @@ import { ErrorToast, IsEmpty, SuccessToast, getBase64 } from '../../helper/FormH
 import { CreateProductRequiest } from '../../API/AdminApiRequiest';
 import { BrandListRequest, CategoryListRequest } from '../../API/apiRequiest';
 import SubmitButton from './../common/SubmitButton';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCreateUpdate = () => {
     const [BtnLoader, SetBtnLoader] = useState(false);
     const [category,setCategory] = useState([]);
     const [brand,setBrand] = useState([]);
+    const navigate = useNavigate()
     useEffect(()=>{
         (async()=>{
             let brand = await BrandListRequest();
@@ -70,6 +72,7 @@ const ProductCreateUpdate = () => {
             await CreateProductRequiest(title,des,price,discount,stock,star,remark,categoryID,brandID,base64).then((res)=>{
                 if(res.status==true){
                     SuccessToast(res.message);
+                    navigate("/productList")
                 }
             })
             SetBtnLoader(false);

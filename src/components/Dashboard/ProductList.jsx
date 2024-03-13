@@ -1,5 +1,6 @@
 import { DeleteProductRequiest } from "../../API/AdminApiRequiest";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from 'react-router-dom';
 const BrandAndCategoryList = (props) => {
   
   const handleSubmit =async (id)=>{
@@ -33,13 +34,13 @@ const BrandAndCategoryList = (props) => {
                             <td>
                                 <img src={item['image']} width={50} alt="" />
                             </td>
-                            <td>{item['title']}</td>
+                            <td>{item['title'].substr(0,40)}</td>
                             <td>{item['star']}</td>
                             <td>{item['stock']}</td>
                             <td>{item['price']}</td>
                             <td>
                                 <div className="btn-group">
-                                    <button className="btn btn-success btn-sm">Edit</button>
+                                    <Link to={`/UpdateProduct/`+item['_id']} className="btn btn-success btn-sm">Edit</Link>
                                     <button className="btn btn-danger btn-sm" onClick={()=>handleSubmit(item['_id'])}>Delete</button>
                                 </div>
                             </td>

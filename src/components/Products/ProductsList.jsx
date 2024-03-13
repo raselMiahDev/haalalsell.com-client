@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import StarRatings from "react-star-ratings/build/star-ratings.js";
 import { TbJewishStar } from "react-icons/tb";
 
-
 const ProductsList = (props) => {
   return (
     <div>
@@ -28,17 +27,16 @@ const ProductsList = (props) => {
               <div className="col-md-12 col-12">
                 <div className="card d-flex justify-content-center">
                   <div className="row">
-
-                    <div className="col-12 col-md-4 text-center">
-                      <img height={220} width={270} src={item["image"]} />
+                    <div className="col-12 col-md-4">
+                      <img src={item["image"]} className="w-100 h-100"/>
                     </div>
 
                     <div className="col-12 col-md-8 py-3 px-5">
                       <div className="d-flex justify-content-between">
-                      <h6 className="w-75">{item["title"]}</h6>
-                      <p className="p-1 border text-primary">
-                      <TbJewishStar size={20}/>
-                      </p>
+                        <h6 className="w-75">{item["title"]}</h6>
+                        <p className="p-1 border text-primary">
+                          <TbJewishStar size={20} />
+                        </p>
                       </div>
                       <div className="pt-2">
                         <p className="fw-bold">৳ {item["price"]}</p>
@@ -53,7 +51,7 @@ const ProductsList = (props) => {
                         <p className="text-success">Free Shipping</p>
                       </div>
                       <div>
-                        <p>{item['shortDes']}</p>
+                        <p>{item["shortDes"]}</p>
                       </div>
 
                       <div>

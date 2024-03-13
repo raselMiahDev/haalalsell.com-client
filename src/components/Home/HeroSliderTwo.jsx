@@ -1,66 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { SliderListRequest } from "../../API/apiRequiest.js";
-import { Link } from "react-router-dom";
-import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { motion } from 'framer-motion';
-import {fadeInUp} from "../../helper/animation.js"
-
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
+import { SliderListRequest } from "../../API/apiRequiest";
 const HeroSliderTwo = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    (async () => {
+  const [slides,setSlides] = useState([]);
+  useEffect(()=>{
+    (async()=>{
       let result = await SliderListRequest();
-      setData(result);
-    })();
-  }, []);
+      setSlides(result)
+    })()
+  },[])
+console.log(slides)
   return (
-    <>
-      <Swiper
-        loop={true}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        navigation={true}
-        modules={[Navigation, Autoplay]}
-        className="mySwiper"
-      >
-        {data.length > 0
-          ? data.map((item) => {
-              return (
-                <SwiperSlide key={item["_id"]}>
-
-                  <div
-                    className="swiper-slide w-100"
-                    style={{
-                      backgroundImage: `url(${item["img"]})`,
-                      backgroundSize:"cover",
-                      height:"90vh",
-                      backgroundRepeat: "no-repeat",
-                    }}
-
-                  >
-                    <div className="d-flex align-items-center container h-50">
-                      <motion.div initial={fadeInUp.initial} animate={fadeInUp.animate} transition={fadeInUp.transition} className="text-start">
-                        <h1 className="poppins-black-italic">{item["title"]}</h1>
-                        <p className="pb-3 poppins-regular-italic">Price : {item["price"]}</p>
-                        <Link
-                          to={"/details/" + item["_id"]}
-                          className="btn btn-warning text-white fw-bold py-2 px-5"
-                        >
-                          Shop Now
-                        </Link>
-                      </motion.div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })
-          : "Loading..."}
-      </Swiper>
-    </>
+    <Swiper
+      slidesPerView={1}
+      navigation={true}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination, Navigation, Autoplay]}
+      autoplay={{
+        delay: 8000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+      {slides.map((slide,i) => {
+        return (
+            <SwiperSlide key={i}>
+              <Link to={"/details/" + slide["_id"]}>
+                <div className="parent">
+                  <img src={slide['img']} className="w-100"/>
+                  <div className="child">
+                  <button className="btn btn-outline-warning px-md-5 py-2 fw-bold">Buy Now</button>
+                </div>
+                </div>
+              </Link>
+            </SwiperSlide>
+        );
+      })}
+    </Swiper>
   );
 };
-
 export default HeroSliderTwo;

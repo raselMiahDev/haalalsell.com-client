@@ -18,9 +18,9 @@ const ProductCard = (props) => {
                   );
                 }
                 return (
-                  <div key={item['_id']} className="col-6 col-md-3 d-flex  justify-content-center">
+                  <div key={item['_id']} className="col-12 col-md-3 d-flex  justify-content-center">
                     <div
-                      className="rounded shadow-sm position-relative bg-white"
+                      className="rounded card shadow-sm position-relative bg-white"
                       style={{ width: "30rem", cursor: "pointer" }}
                     >
                       <div className="position-absolute top-0 end-0 m-2">
@@ -32,7 +32,7 @@ const ProductCard = (props) => {
                         </span>
                       </div>
                       <Link to={"/details/" + item["_id"]}>
-                        <img src={item['image']} className="card-img-top" height={210} alt="..." />
+                        <img src={item['image']} className="card-img-top" height={270}  alt="..." />
                       </Link>
                       <div className="card-body px-2 pb-2">
                         <div>
@@ -49,7 +49,7 @@ const ProductCard = (props) => {
                         </div>
                         <div className="d-flex justify-content-between">
                           <StarRatings
-                            rating={parseFloat(item["star"])}
+                            rating={parseFloat(item?.["star"])}
                             starRatedColor="orange"
                             starDimension="17px"
                             starSpacing="1px"

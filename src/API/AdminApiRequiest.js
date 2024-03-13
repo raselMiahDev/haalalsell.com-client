@@ -1,9 +1,8 @@
 import axios from "axios";
 import unauthorized from "../utility/unauthorized";
 import { setToken, getToken, setUserDetails } from "../helper/SessionHelper";
-// const BASEURL = "https://e-shop-server-seven.vercel.app";
-// const BASEURL = "http://localhost:5000/api/v1";
-const BASEURL = "https://haalalsell.onrender.com/api/v1";
+const BASEURL = "http://localhost:5000/api/v1";
+// const BASEURL = "https://haalalsell.onrender.com/api/v1";
 const Headers = { headers: { token: getToken() } };
 
 export const CreateCategoryRequiest = async (categoryName, categoryImg) => {
@@ -156,6 +155,64 @@ export const ProductSliderDeleteRequiest = async (id) => {
     return data;
   } catch (error) {
     console.error("Error delete product", error);
+    throw error; // Rethrow the error to be caught by the caller
+  }
+};
+//update requiest
+export const ProductUpdateRequiest = async (
+  id,
+  title,
+  shortDes,
+  price,
+  discount,
+  image,
+  stock,
+  star,
+  remark,
+  categoryID,
+  brandID
+) => {
+  try {
+    const URL = BASEURL + "/UpdateProduct/" + id;
+    const postBody = {
+      title,
+      shortDes,
+      price,
+      discount,
+      image,
+      stock,
+      star,
+      remark,
+      categoryID,
+      brandID,
+    };
+    const { data } = await axios.post(URL, postBody, Headers);
+    return data;
+  } catch (error) {
+    console.error("Error update product", error);
+    throw error; // Rethrow the error to be caught by the caller
+  }
+};
+export const BrandUpdateRequiest = async (id, name, base64Image) => {
+  try {
+    const postBody = { brandName: name, brandImg: base64Image };
+    const URL = BASEURL + "/UpdateBrand/" + id;
+    const { data } = await axios.post(URL, postBody, Headers);
+    return data;
+  } catch (error) {
+    console.error("Error update brand", error);
+    throw error; // Rethrow the error to be caught by the caller
+  }
+};
+
+export const CategoryUpdateRequiest = async (id, name, base64Image) => {
+  try {
+    const postBody = { categoryName: name, categoryImg: base64Image };
+    const URL = BASEURL + "/UpdateCategory/" + id;
+    const { data } = await axios.post(URL, postBody, Headers);
+    return data;
+  } catch (error) {
+    console.error("Error update Category", error);
     throw error; // Rethrow the error to be caught by the caller
   }
 };

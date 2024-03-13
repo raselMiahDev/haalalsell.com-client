@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { DeleteCategoryRequiest } from "../../API/AdminApiRequiest";
 import toast, { Toaster } from "react-hot-toast";
 const CategoryList = (props) => {
@@ -34,7 +35,7 @@ const CategoryList = (props) => {
                             <td>{item['categoryName']}</td>
                             <td>
                                 <div className="btn-group">
-                                    <button className="btn btn-success btn-sm">Edit</button>
+                                    <Link to={`/CategoryUpdate/${item['_id']}`} className="btn btn-success btn-sm">Edit</Link>
                                     <button onClick={()=>handleSubmit(item['_id'])} className="btn btn-danger btn-sm">Delete</button>
                                 </div>
                             </td>

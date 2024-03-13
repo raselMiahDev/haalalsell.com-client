@@ -31,20 +31,20 @@ const Products = () => {
 
   return (
     <div className="section py-5">
-      <div className="container py-3 rounded" style={{backgroundColor:"#f3f3f3"}}>
+      <div className="container py-3 rounded bg-light">
         <div className="row">
           <div className="col-12">
             <div>
               <div className="d-flex">
                 <p className="w-100">
                   <ul
-                      className="nav nav-pills mb-3"
+                      className="nav nav-pills mb-4"
                       id="pills-tab"
                       role="tablist"
                     >
                       <li className="nav-item" role="presentation">
                         <button
-                          className="nav-link active"
+                          className="nav-link active px-4"
                           id="pills-home-tab"
                           data-bs-toggle="pill"
                           data-bs-target="#pills-new"
@@ -58,7 +58,7 @@ const Products = () => {
                       </li>
                       <li className="nav-item" role="presentation">
                         <button
-                          className="nav-link"
+                          className="nav-link px-4"
                           id="pills-profile-tab"
                           data-bs-toggle="pill"
                           data-bs-target="#pills-trending"
@@ -72,7 +72,7 @@ const Products = () => {
                       </li>
                       <li className="nav-item" role="presentation">
                         <button
-                          className="nav-link"
+                          className="nav-link px-4"
                           id="pills-contact-tab"
                           data-bs-toggle="pill"
                           data-bs-target="#pills-popular"
